@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini UNO!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom card animations */
+      .card-hover:hover {
+        transform: translateY(-10px) scale(1.05);
+        z-index: 10;
+      }
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      /* Special Effect Animation */
+      @keyframes effect-pop {
+        0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+        20% { transform: scale(1.2) rotate(0deg); opacity: 1; }
+        80% { transform: scale(1) rotate(0deg); opacity: 1; }
+        100% { transform: scale(1.5) rotate(10deg); opacity: 0; }
+      }
+      .animate-effect-pop {
+        animation: effect-pop 1.5s ease-out forwards;
+      }
+
+      /* Typing Dots Animation */
+      @keyframes bounce-delay {
+        0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+      }
+      .typing-dot {
+        animation: bounce-delay 1.4s infinite ease-in-out both;
+      }
+      .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+      .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+      /* AI Thinking Glow */
+      @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 3s linear infinite;
+      }
+
+      /* Playable Card Glow & Bounce */
+      @keyframes playable-pulse {
+        0%, 100% { 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-8px);
+        }
+        50% { 
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.7), 0 0 10px rgba(255, 255, 255, 0.8);
+            border-color: #ffffff;
+            transform: translateY(-14px);
+        }
+      }
+      .animate-playable {
+        animation: playable-pulse 2s ease-in-out infinite;
+      }
+
+      /* Shake Animation for AI Reaction */
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+      .animate-shake {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "peerjs": "https://esm.sh/peerjs@1.5.4?bundle-deps"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
